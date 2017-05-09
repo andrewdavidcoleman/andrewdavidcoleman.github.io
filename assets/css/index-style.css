@@ -1,0 +1,128 @@
+body{
+		background-image: url(../images/swirl_pattern.png);
+
+}
+.navbar{
+	border-top: none;
+	height: 100px;
+	/*padding-top: 25px;*/
+
+}
+.navbar-header{
+
+}
+.navbar-brand{
+	font-size: 50px;
+	background-color: #4aaaa5;
+	padding-top: 40px;
+	padding-bottom: 60px;
+}
+
+.name{
+	color: white;
+	font-family: Open Sans Condensed;
+	letter-spacing: 2px;
+}
+.navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover {
+     color: white; 
+     background-color: #4aaaa5; 
+}
+
+.navbar-right{
+	padding-top: 30px;
+}
+.middle-nav{
+	border-right: 1px solid #dddddd;
+	border-left: 1px solid #dddddd;
+}
+.main-content{
+	width: 940px;
+	padding: 0;
+}
+.profile{
+	height: 200px;
+	padding: 0 0 0 0;
+	margin: 0px 10px 0px 0px;
+}
+.big-box{
+	border: 1px solid #dddddd;
+	margin: 20px 0px 20px 0;
+	background-color: white;
+}
+.about-me{
+	border-bottom: 1px solid #dddddd;
+	letter-spacing: 2px;
+	font-family: Open Sans Condensed;
+	font-size: 40px;
+	padding: 0px 0px 0px 0px;
+	margin: 30px 0px 30px 40px;
+	color: #4aaaa5;
+
+}
+.small-box{
+	border: 1px solid #dddddd;
+	margin: 20px 0px 30px 0px;
+	background-color: white;
+	padding-bottom: 10px;
+}
+.connect-with-me{
+	border-bottom: 1px solid #dddddd;
+	letter-spacing: 2px;
+	font-family: Open Sans Condensed;
+	font-size: 35px;
+	padding: 0px 0px 0px 0px;
+	margin: 20px 0px 10px 20px;
+	color: #4aaaa5;
+}
+.icon{
+	height: 45px;
+	margin: 0 2px 0 0px;
+}
+.ig-icon, .twitter-icon{
+	height: 40px;
+	margin: 0 10px 0 0;
+}
+
+.footer{
+	background-color:#666666;
+	height: 90px;
+	padding-top: 30px;
+	border-top: 5px solid #4aaaa5;
+
+}
+.text-muted{
+	color: white;
+	text-align: center;
+	font-size: 10px;
+}
+
+
+
+
+/*======Media Queries=======*/
+
+/*@media all and (max-width: 980px){
+
+
+
+
+
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
