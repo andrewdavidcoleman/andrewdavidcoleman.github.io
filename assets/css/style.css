@@ -1,0 +1,78 @@
+body{
+	background-image: url("../images/mario-background.png");
+	background-size: contain;
+	background-attachment: fixed;
+}
+.container{
+	width: 800px;
+	height: 1200px;
+	text-align: center;
+	color: rgb(247,143,70);
+	font-family: "bangers";
+	letter-spacing: 2px;
+	background-color: rgba(0,0,0,.7);
+
+
+}
+h1{
+	color:rgb(232,17,19);
+	font-size: 70px;
+}
+.timer{
+	font-size: 40px;
+}
+#hidden-timer{
+	display: none;
+	position: fixed;
+	font-family: "bangers";
+	letter-spacing: 2px;
+	background-color: rgba(0,0,0,.7);
+	padding: 0 10px 0 10px;
+	margin: 400px 0 0 0;
+}
+p{
+	color: rgb(247,143,70);;
+	/*background-color: rgba(0,0,0,.7);*/
+	font-size: 30px;
+}
+button{
+	background-color: rgb(1,171,0);
+	color: white;
+	height: 50px;
+	width: 100px;
+	border-radius: 50px;
+	letter-spacing: 3px;
+	font-size: 20px;
+}
+#begin-button{
+	height: 100px;
+	width: 200px;
+	font-size: 40px;
+}
+input[type="radio"]{
+	margin: 0 5px 0 0;
+}
+.answer{
+	font-family: "oswald";
+	font-size: 15px;
+	background-color: rgb(28,73,199);
+	display: inline-block;
+	padding: 0px 20px 0 20px;
+	border-radius: 10px;
+}
+.game-over-screen{
+	font-size: 30px;
+}
+#game-over-phrase{
+	color:rgb(232,17,19);
+	font-size: 60px;
+}
+
+
+
+
+
+
+
+
+

@@ -1,97 +1,158 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<title>Andrew Coleman</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="assets/css/index-style.css">
+	<title>Trivia Game</title>
+<!-- Bootstrap CDN -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- External style sheet -->
+<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+<!-- Google fonts -->
+<link href="https://fonts.googleapis.com/css?family=Bangers|Oswald" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Open+Sans+Condensed:300" rel="stylesheet">
 
 </head>
+
 <body>
 
-
-	<nav class="navbar navbar-default">
-	<div class="container">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="index.html">
-      	<div class="name">
-      		Andrew Coleman
-      	</div>
-      </a>
-    </div>
-      
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="index.html">About</a></li>
-        <li class="middle-nav"><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="contact.html">Contact</a></li>          
-        </li>
-      </ul>
-
-  </div>
-  </div>
-</nav>
+<!-- hidden timer that displays when less than 10 seconds left -->
+<div class="timer" id="hidden-timer">01:00</div>
 
 
-<div class="container main-content">
-	<div class="row">
-		<div class="col-sm-8 wrapper">
-		<div class="col-sm-12 big-box">
-			<div class="row">	
-				<div class="col-sm-9 about-me">
-				About me
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-sm-12">
-				<img src="assets/images/TopAndrew.JPG" class="img-responsive img-circle pull-left profile">
-				<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore consectetur sed esse consequatur amet laboriosam, deleniti aspernatur explicabo ducimus natus asperiores saepe, incidunt ipsum! Quidem ullam molestias at! Qui, fuga.
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis voluptatum perspiciatis dolor incidunt, dolorem officiis, tempora eaque, velit consectetur sunt necessitatibus nisi repudiandae reiciendis voluptates ratione. Numquam dignissimos quaerat maiores
-				</p>
-				</div>
-			</div>
-		</div>
-		</div>
+<div class="container">
+<!-- undisplayed audio files to be used throughout the app -->
+<audio id="pipe-sound" style="display: none">
+    <source src="assets/audio/pipe.wav" type="audio/wav">
+</audio>
+<audio id="coin-sound" style="display: none">
+    <source src="assets/audio/coin.wav" type="audio/wav">
+</audio>
+<audio id="death-sound" style="display: none">
+    <source src="assets/audio/death.wav" type="audio/wav">
+</audio>
+<audio id="gameover-sound" style="display: none">
+    <source src="assets/audio/gameover.wav" type="audio/wav">
+</audio>
+<audio id="timelow-sound" style="display: none">
+    <source src="assets/audio/timelow.wav" type="audio/wav">
+</audio>
+<audio id="worldclear-sound" style="display: none">
+    <source src="assets/audio/worldclear.wav" type="audio/wav">
+</audio>
+<audio id="stageclear-sound" style="display: none">
+    <source src="assets/audio/stageclear.wav" type="audio/wav">
+</audio>
+<audio id="powerup-sound" style="display: none">
+    <source src="assets/audio/powerup.wav" type="audio/wav">
+</audio>
+<audio id="hurryup-sound" style="display: none">
+    <source src="assets/audio/hurryup.wav" type="audio/wav">
+</audio>
 
-		<div class="col-sm-4 wrapper">
-		<div class="col-sm-12 small-box">
-			<div class="row">
-				<div class="col-sm-10 connect-with-me">
-					Connect with me
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-sm-12">
-					<a href="https://github.com/andrewdavidcoleman" target="blank">
-						<img src="assets/images/UseGithub.png" class="icon"></a>
-					<a href="https://www.linkedin.com/in/andrew-coleman-1b18b013/" target="blank">
-						<img src="assets/images/UseLinkedin.png" class="icon"></a>
-					<a href="http://stackoverflow.com/users/7862477/andrew-coleman" target="blank">
-						<img src="assets/images/UseStackoverflow.png" class="icon"></a>
-					<a href="https://www.instagram.com/andrewdavidcoleman/" target="blank">
-						<img src="assets/images/UseInstagram.png" class="icon ig-icon"></a>
-					<a href="https://twitter.com/MrAndrewColeman" target="blank">
-						<img src="assets/images/UseTwitter.png" class="icon twitter-icon"></a>
-				</div>
-			</div>	
-		</div>
-		</div>
+<!-- page with a start button that appears when the page loads -->
+<div class="start-screen">
+  <br><br><br><br><br><br><br><br><h1>Super Mario Trivia!</h1><br>Answer all the questions before time runs out!
+  <br>(sound on for full experience)
+  <br>Click to get started:<br><br>
+  <button id="begin-button">BEGIN</button>
+</div>
 
-	</div>
+
+
+<!-- main page that holds the contents of the trivia game -->
+<div class="game-screen">
+<h1>Super Mario Trivia!</h1>
+
+<div class="timer-div">
+	Time remaining: <div class="timer">01:00</div>
+</div><br>
+
+<p>1. In what video game did Mario make his first appearance?</p>
+<div class="answers-div">
+	<form action="">
+  		<div class="answer"><input type="radio" name="answersq1" value="Super Mario Bros.">Super Mario Bros.</div>
+  		<div class="answer"><input type="radio" name="answersq1" value="Duck Hunt">Duck Hunt</div>
+  		<div class="answer"><input type="radio" name="answersq1" value="Super Mario World">Super Mario World</div>
+  		<div class="answer"><input type="radio" name="answersq1" value="Donkey Kong">Donkey Kong</div>
+	</form>
+</div>
+<br><br>
+<p>2. What is the name of the recurring damsel in distress in the Super Mario video game franchise?</p>
+<div class="answers-div">
+	<form action="">
+  		<div class="answer"><input type="radio" name="answersq2" value="Princess Peach">Princess Peach</div>
+  		<div class="answer"><input type="radio" name="answersq2" value="Princess Toadstool">Princess Toadstool</div>
+  		<div class="answer"><input type="radio" name="answersq2" value="Mrs. Mario">Mrs. Mario</div>
+  		<div class="answer"><input type="radio" name="answersq2" value="Princess Koopa">Princess Koopa</div>
+	</form>
+</div>
+<br><br>
+<p>3. Which occupation has Mario NOT had in any of his video game appearances?</p>
+<div class="answers-div">
+	<form action="">
+  		<div class="answer"><input type="radio" name="answersq3" value="Chef">Chef</div>
+  		<div class="answer"><input type="radio" name="answersq3" value="Carpenter">Carpenter</div>
+  		<div class="answer"><input type="radio" name="answersq3" value="Plumber">Plumber</div>
+  		<div class="answer"><input type="radio" name="answersq3" value="Physician">Physician</div>
+	</form>
+</div>
+<br><br>
+<p>The first 3D Super Mario game was:</p>
+<div class="answers-div">
+	<form action="">
+  		<div class="answer"><input type="radio" name="answersq4" value="Super Mario World">Super Mario World</div>
+  		<div class="answer"><input type="radio" name="answersq4" value="Super Mario 64">Super Mario 64</div>
+  		<div class="answer"><input type="radio" name="answersq4" value="Paper Mario">Paper Mario</div>
+      <div class="answer"><input type="radio" name="answersq4" value="Mario Kart">Mario Kart</div>
+	</form>
+</div>
+<br><br>
+<p>What was Mario's original name from his first video game appearance?</p>
+<div class="answers-div">
+	<form action="">
+  		<div class="answer"><input type="radio" name="answersq5" value="Dodger">Dodger</div>
+  		<div class="answer"><input type="radio" name="answersq5" value="Mario">Mario</div>
+  		<div class="answer"><input type="radio" name="answersq5" value="Jumpman">Jumpman</div>
+      <div class="answer"><input type="radio" name="answersq5" value="Bouncer">Bouncer</div>
+	</form>
+</div>
+<br><br>
+<button id="done-button">Done</button>
+</div>
+
+
+<!-- results page that shows whether you won or lost and the results of the game -->
+<div class="game-over-screen">
+<br><br>
+<div id="game-over-phrase"></div><br>
+Correct: <span id="correct"></span><br>
+Incorrect: <span id="incorrect"></span><br>
+Unanswered: <span id="unanswered"></span><br>
+<a id="info-link" target="_blank" href="https://en.wikipedia.org/wiki/Super_Mario">https://en.wikipedia.org/wiki/Super_Mario</a>
+<br><br><button id="retry-button">Retry</button>
 
 
 
 </div>
 
- <footer class="footer">
-      <div class="container">
-        <p class="text-muted">Copyright Andrew Coleman 2017</p>
-      </div>
-    </footer>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end of container div -->
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="assets/javascript/app.js"></script>
 </body>
 </html>
-
-
