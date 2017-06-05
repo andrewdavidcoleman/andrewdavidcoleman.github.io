@@ -1,158 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Super Mario Trivia</title>
-<!-- Bootstrap CDN -->
+	<title>API Homework</title>
+	<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<!-- External style sheet -->
-<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-<!-- Google fonts -->
-<link href="https://fonts.googleapis.com/css?family=Bangers|Oswald" rel="stylesheet">
-
-
-</head>
-
-<body>
-
-<!-- hidden timer that displays when less than 10 seconds left -->
-<div class="timer" id="hidden-timer">01:00</div>
-
-
-<div class="container">
-<!-- undisplayed audio files to be used throughout the app -->
-<audio id="pipe-sound" style="display: none">
-    <source src="assets/audio/pipe.wav" type="audio/wav">
-</audio>
-<audio id="coin-sound" style="display: none">
-    <source src="assets/audio/coin.wav" type="audio/wav">
-</audio>
-<audio id="death-sound" style="display: none">
-    <source src="assets/audio/death.wav" type="audio/wav">
-</audio>
-<audio id="gameover-sound" style="display: none">
-    <source src="assets/audio/gameover.wav" type="audio/wav">
-</audio>
-<audio id="timelow-sound" style="display: none">
-    <source src="assets/audio/timelow.wav" type="audio/wav">
-</audio>
-<audio id="worldclear-sound" style="display: none">
-    <source src="assets/audio/worldclear.wav" type="audio/wav">
-</audio>
-<audio id="stageclear-sound" style="display: none">
-    <source src="assets/audio/stageclear.wav" type="audio/wav">
-</audio>
-<audio id="powerup-sound" style="display: none">
-    <source src="assets/audio/powerup.wav" type="audio/wav">
-</audio>
-<audio id="hurryup-sound" style="display: none">
-    <source src="assets/audio/hurryup.wav" type="audio/wav">
-</audio>
-
-<!-- page with a start button that appears when the page loads -->
-<div class="start-screen">
-  <br><br><br><br><br><br><br><br><h1>Super Mario Trivia!</h1><br>Answer all the questions before time runs out!
-  <br>(sound on for full experience)
-  <br>Click to get started:<br><br>
-  <button id="begin-button">BEGIN</button>
-</div>
-
-
-
-<!-- main page that holds the contents of the trivia game -->
-<div class="game-screen">
-<h1>Super Mario Trivia!</h1>
-
-<div class="timer-div">
-	Time remaining: <div class="timer">01:00</div>
-</div><br>
-
-<p>1. In what video game did Mario make his first appearance?</p>
-<div class="answers-div">
-	<form action="">
-  		<div class="answer"><input type="radio" name="answersq1" value="Super Mario Bros.">Super Mario Bros.</div>
-  		<div class="answer"><input type="radio" name="answersq1" value="Duck Hunt">Duck Hunt</div>
-  		<div class="answer"><input type="radio" name="answersq1" value="Super Mario World">Super Mario World</div>
-  		<div class="answer"><input type="radio" name="answersq1" value="Donkey Kong">Donkey Kong</div>
-	</form>
-</div>
-<br><br>
-<p>2. What is the name of the recurring damsel in distress in the Super Mario video game franchise?</p>
-<div class="answers-div">
-	<form action="">
-  		<div class="answer"><input type="radio" name="answersq2" value="Princess Peach">Princess Peach</div>
-  		<div class="answer"><input type="radio" name="answersq2" value="Princess Toadstool">Princess Toadstool</div>
-  		<div class="answer"><input type="radio" name="answersq2" value="Mrs. Mario">Mrs. Mario</div>
-  		<div class="answer"><input type="radio" name="answersq2" value="Princess Koopa">Princess Koopa</div>
-	</form>
-</div>
-<br><br>
-<p>3. Which occupation has Mario NOT had in any of his video game appearances?</p>
-<div class="answers-div">
-	<form action="">
-  		<div class="answer"><input type="radio" name="answersq3" value="Chef">Chef</div>
-  		<div class="answer"><input type="radio" name="answersq3" value="Carpenter">Carpenter</div>
-  		<div class="answer"><input type="radio" name="answersq3" value="Plumber">Plumber</div>
-  		<div class="answer"><input type="radio" name="answersq3" value="Physician">Physician</div>
-	</form>
-</div>
-<br><br>
-<p>The first 3D Super Mario game was:</p>
-<div class="answers-div">
-	<form action="">
-  		<div class="answer"><input type="radio" name="answersq4" value="Super Mario World">Super Mario World</div>
-  		<div class="answer"><input type="radio" name="answersq4" value="Super Mario 64">Super Mario 64</div>
-  		<div class="answer"><input type="radio" name="answersq4" value="Paper Mario">Paper Mario</div>
-      <div class="answer"><input type="radio" name="answersq4" value="Mario Kart">Mario Kart</div>
-	</form>
-</div>
-<br><br>
-<p>What was Mario's original name from his first video game appearance?</p>
-<div class="answers-div">
-	<form action="">
-  		<div class="answer"><input type="radio" name="answersq5" value="Dodger">Dodger</div>
-  		<div class="answer"><input type="radio" name="answersq5" value="Mario">Mario</div>
-  		<div class="answer"><input type="radio" name="answersq5" value="Jumpman">Jumpman</div>
-      <div class="answer"><input type="radio" name="answersq5" value="Bouncer">Bouncer</div>
-	</form>
-</div>
-<br><br>
-<button id="done-button">Done</button>
-</div>
-
-
-<!-- results page that shows whether you won or lost and the results of the game -->
-<div class="game-over-screen">
-<br><br>
-<div id="game-over-phrase"></div><br>
-Correct: <span id="correct"></span><br>
-Incorrect: <span id="incorrect"></span><br>
-Unanswered: <span id="unanswered"></span><br>
-<a id="info-link" target="_blank" href="https://en.wikipedia.org/wiki/Super_Mario">https://en.wikipedia.org/wiki/Super_Mario</a>
-<br><br><button id="retry-button">Retry</button>
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- end of container div -->
-</div>
+<!-- external style sheet -->
+<link rel="stylesheet" type="text/css" href="assets/style.css">
+<!-- JQuery CDN -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="assets/javascript/app.js"></script>
+<!-- external JS -->
+<script src="assets/script.js"></script>
+</head>
+<body>
+<!-- container div wrapping body -->
+<div class="container">
+
+
+<!-- this row contains all of our predefined and dynamically generated buttons -->
+<div class="row" id="buttons-div"></div>
+
+<!-- this row contains our user inputs-->
+<div class="row" id="input-div">
+	<!-- <form id="new-city"> -->
+	Add a city!<br>
+		<input id="user-input" type="text">
+		<button id="submit-button" value="Submit">Submit</button>
+	<!-- </form> -->
+</div>
+<div id="madness" class="row">Click to stop the gif madness!</div>
+<!-- this row contains all of our dynamically generated gifs -->
+<div class="row" id="gif-div">
+	
+</div>
+
+
+
+
+<!-- end of .container div -->
+</div>
+
 </body>
 </html>
