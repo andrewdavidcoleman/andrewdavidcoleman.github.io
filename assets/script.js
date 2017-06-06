@@ -22,7 +22,7 @@ generateButtons();
 $(".city-button").click(function(){
 	var unsplitCityName = ($(this).val());
 	var cityName = unsplitCityName.split(' ').join('+');
-	var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + cityName + "&api_key=dc6zaTOxFJmzC&limit=5&rating=pg";
+	var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + cityName + "&api_key=dc6zaTOxFJmzC&limit=5&rating=pg";
 	$("#gif-div").empty();
         $.ajax({
           url: queryURL,
@@ -88,7 +88,7 @@ $('#submit-button').click(function() {
 $(".city-button").click(function(){
 	var unsplitCityName = ($(this).val());
 	var cityName = unsplitCityName.split(' ').join('+');
-	var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + cityName + "&api_key=dc6zaTOxFJmzC&limit=5&rating=pg";
+	var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + cityName + "&api_key=dc6zaTOxFJmzC&limit=5&rating=pg";
 	$("#gif-div").empty();
         $.ajax({
           url: queryURL,
