@@ -1,43 +1,69 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>API Homework</title>
+	<title>All aboard!</title>
 	<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<!-- external style sheet -->
-<link rel="stylesheet" type="text/css" href="assets/style.css">
-<!-- JQuery CDN -->
+<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!-- external JS -->
-<script src="assets/script.js"></script>
+<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
+<script type="text/javascript" src="assets/javascript/script.js" ></script>
 </head>
 <body>
-<!-- container div wrapping body -->
-<div class="container">
+	<!--container div wrapping page -->
+	<div class="container">
+
+		<!-- jumbotron row div -->
+		<div class="row jumbotron">
+			<h1>All aboard!</h1>
+		</div>
+
+		<!-- div containing our train schedule -->
+		<div class="row vanilla-divs">
+			<div class="div-header">
+				Current Train Schedule
+			</div>
+			<div class='train-row'><span class='column-name'>Train name</span><span class='column-destination'>Destination</span><span class='column-frequency'>Frequency(min)</span><span class='column-next'>Next arrival</span><span class='column-minutes'>Minutes away</span></div>
+			<div id="schedule-div">
+				
+			</div>
+		</div>
+
+		<!-- div containing our new train form -->
+		<div class="row vanilla-divs" id="form-div">
+			<div class="div-header">
+				Add Train
+			</div>
+			<form>
+				Train name:<br><input id="input-name" type="text" name="train-name"><br>
+				Destination:<br><input id="input-destination" type="text" name="train-destination"><br>
+				First train time(HH:mm - military time):<br><input id="input-time" type="text" name="train-time"><br>
+				Frenquency(min):<input id="input-frequency" type="text" name="train-frequency"><br>
+				<input id="submit-button" type="submit" name="submit-button">
+			</form>
+		</div>
 
 
-<!-- this row contains all of our predefined and dynamically generated buttons -->
-<div class="row" id="buttons-div"></div>
-
-<!-- this row contains our user inputs-->
-<div class="row" id="input-div">
-	<!-- <form id="new-city"> -->
-	Add a city!<br>
-		<input id="user-input" type="text">
-		<button id="submit-button" value="Submit">Submit</button>
-	<!-- </form> -->
-</div>
-<div id="madness" class="row">Click to stop the gif madness!</div>
-<!-- this row contains all of our dynamically generated gifs -->
-<div class="row" id="gif-div">
-	
-</div>
 
 
 
 
-<!-- end of .container div -->
-</div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+	<!-- closing tag of container div wrapping page -->
+	</div>
 </body>
 </html>
