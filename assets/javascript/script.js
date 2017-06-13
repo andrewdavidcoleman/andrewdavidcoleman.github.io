@@ -32,28 +32,28 @@ $( document ).ready(function() {
 
   		$("#schedule-div").empty();
 
-  		// reassign variables with data from database
-		trainName = database.trainName;
-		trainDestination = database.trainDestination;
-		trainTime = database.trainTime;
-		trainFrequency = database.trainFrequency;
+  // 		// reassign variables with data from database
+		// trainName = database.trainName;
+		// trainDestination = database.trainDestination;
+		// trainTime = database.trainTime;
+		// trainFrequency = database.trainFrequency;
 
-  		// time calculations
-		var trainTimeObj = moment(database.trainTime, "hh:mm");
-		var minutesSince = now.diff(trainTimeObj, 'minutes');
-		var trainNextObj = now.add(database.trainMinutes, 'm');
-		trainMinutes = minutesSince % trainFrequency;
-		trainNext = trainNextObj.format("hh:mm");
+  // 		// time calculations
+		// var trainTimeObj = moment(database.trainTime, "hh:mm");
+		// var minutesSince = now.diff(trainTimeObj, 'minutes');
+		// var trainNextObj = now.add(database.trainMinutes, 'm');
+		// trainMinutes = minutesSince % trainFrequency;
+		// trainNext = trainNextObj.format("hh:mm");
 
-		// push the users input to the database
-  		database.ref().set({
-	        trainName: trainName,
-	        trainDestination: trainDestination,
-	        trainTime: trainTime,
-	        trainFrequency: trainFrequency,
-	        trainMinutes: trainMinutes,
-	        trainNext: trainNext
-   		});
+		// // push the users input to the database
+  // 		database.ref().set({
+	 //        trainName: trainName,
+	 //        trainDestination: trainDestination,
+	 //        trainTime: trainTime,
+	 //        trainFrequency: trainFrequency,
+	 //        trainMinutes: trainMinutes,
+	 //        trainNext: trainNext
+  //  		});
 
 	    var sv = snapshot.val();
 	      
