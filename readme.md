@@ -1,0 +1,1 @@
+# Date Duck is an application that allows you to set up a fun night out with the ease a few clicks.
